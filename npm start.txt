@@ -1,0 +1,10 @@
+set DMN=http://localhost:3001
+set DEBUG=sd*
+set NODE_ENV=production
+set SS_S='af919388-6929-4b06-a835-19c605518a4d'
+set SALT=8
+set EMAIL_PW=Test@1234
+set GG_ID=120404744058-jib7bgrdkmlsava6soq8tl8bt8egpaea.apps.googleusercontent.com
+set FB_ID=2152071231731773
+set DB_PW=
+npm run server__dev

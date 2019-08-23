@@ -1,0 +1,110 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { getDeps } from './store/actions/depositActions';
+import { Table, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './Layouts/styling.css'
+
+class Deposits extends React.Component {
+    constructor(props) {
+        super(props);
+        let isAdmin = false;
+        if (!(this.props.auth.userData === "")) {
+            if (this.props.auth.userData.data.role === "ADMIN") {
+                isAdmin = true;
+            }
+        }
+
+        this.props.getDeps(isAdmin);
+
+    }
+    render() {
+        let loadDeps = this.props.deposits.loadDeps;
+        let depsData = (this.props.deposits.depositsData === "")
+        let sum = 0;
+        if (!depsData) {
+            this.props.deposits.depositsData.map(sumdep => {
+                sum = Number(sum) + Number(sumdep.initialAmount);
+            })
+        }
+        return (<div> <h1> Deposits  </h1>
+            {
+                loadDeps &&
+                <h2> Loading...</h2>
+            }
+            {
+                !loadDeps &&
+                depsData &&
+                <h2> No Deposits found...</h2>
+            }
+            {
+                !loadDeps &&
+                !depsData &&
+               
+                    <Table responsive>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Account Number</th>
+                                <th>Bank Name</th>
+                                <th>Amount Deposited</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Interest %</th>
+                                <th>Interest till today</th>
+                                <th>Tax %</th>
+                                <th>userId</th>
+                                <th>edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.props.deposits.depositsData.map(eachDep =>
+                                    <tr key={eachDep._id}>
+                                        <td>{eachDep._id}</td>
+                                        <td>{eachDep.accountNumber}</td>
+                                        <td>{eachDep.bankName}</td>
+                                        <td>{eachDep.initialAmount}</td>
+                                        <td>{eachDep.StartDate}</td>
+                                        <td>{eachDep.EndDate}</td>
+                                        <td>{eachDep.interest}</td>
+                                        <td>int till today</td>
+                                        <td>{eachDep.tax}</td>
+                                        <td>{eachDep.userId}</td>
+                                        <td>
+                                            <Link to={`/deposit/${eachDep._id}`}>edit</Link>
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                            <tr style={{ "border-top-style": "solid" }}>
+                                <td>Total</td>
+                                <td></td>
+                                <td></td>
+                                <td>{sum}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                
+            }
+            <Button bsclass="custom-btn" className="btn-lg btn-dark">
+                <Link to="/createdeposit"> Create Deposit </Link>
+            </Button>
+        </div >
+        );
+    }
+}
+
+const mapStateToProps = (state) => ({
+    deposits: state.deposits,
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { getDeps })(Deposits);

@@ -1,0 +1,33 @@
+.custom-btn{
+    background: #fff;
+    color: red;
+    border: 2px solid red;
+    border-radius: 3px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+.navlink-class{
+    color: grey;
+    padding: 5px 10px;
+    
+}
+.navlink-class-log{
+    color: grey;
+    padding: 5px 10px;
+    
+}
+.allignright{
+    position: absolute;
+    right: 20px;
+}
+.tile-element{
+    width: 80%;
+    height: 150px;
+    border: rgb(105, 107, 107);
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 2px 2px;
+}
+.tile-element:hover{
+    color: grey
+}
