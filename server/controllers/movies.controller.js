@@ -24,27 +24,46 @@ async function getAll(req, res, next) {
     });
 }
 
-// async function create(req, res, next) {
-//     const args = req.body;
-//     const {
-//         title,
-//         releaseDate,
-//         duration,
-//         genre,
-//         description
-//     } = args;
-//     const movie = await moviesModel.create({
-//         title,
-//         releaseDate,
-//         duration,
-//         genre,
-//         description
-//     })
-//     res.json({
-//         ok: true,
-//         movie: movie,
-//         message: 'Movie record successfully created.'
-//     })
-// }
+async function create(req, res, next) {
+    const args = req.body;
+    debug('sd:controllers:movie.controller create', req);
+    const {
+        title,
+        releaseDate,
+        duration,
+        genre,
+        description
+    } = args;
+    const movie = await moviesModel.create({
+        title,
+        releaseDate,
+        duration,
+        genre,
+        description
+    })
+    res.json({
+        ok: true,
+        movie: movie,
+        message: "movie record successfully created"
+    });
+}
 
-module.exports = { getAll };
+async function remove(req, res, next) {
+    const _id = req.params.id;
+    // debug('movies.controller', _id, req.params);
+    const affectedCount = await moviesModel.remove({
+        _id
+    });
+    debug('remove', affectedCount);
+    if (affectedCount) {
+        return ({
+            ok: true,
+            message: "Movie deleted successfully."
+        })
+    }
+    else {
+        return next(new createError.NotFound());
+    }
+
+}
+module.exports = { getAll, create, remove };

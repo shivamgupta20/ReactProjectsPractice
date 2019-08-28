@@ -21,7 +21,7 @@ async function getAll(where) {
         genre = where.genre
     if (where.description)
         description = where.description
-    const movies = moviesSchema.findAll({
+    const movies = await moviesSchema.findAll({
         where: removeUndefinedKeys({
             title,
             releaseDate,
@@ -36,7 +36,38 @@ async function getAll(where) {
     return movies;
 }
 
-module.exports = {
-    getAll
-};
+async function create(args) {
+    const { title,
+        releaseDate,
+        duration,
+        genre,
+        description } = args;
+    const movie = await moviesSchema.create({
+        title,
+        releaseDate,
+        duration,
+        genre,
+        description
+    });
+    return movie.get({
+        plain: true
+    })
+}
 
+async function remove(args) {
+    const { _id, userId } = args;
+    const affectedCount = await moviesSchema.destroy({
+        where: removeUndefinedKeys({
+            _id, userId
+        })
+
+    });
+    debug('remove', affectedCount);
+    return affectedCount;
+}
+
+module.exports = {
+    getAll,
+    create,
+    remove
+};
