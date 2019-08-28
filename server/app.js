@@ -48,6 +48,8 @@ var savingDepositRoutes = require('./routes/saving-deposit.routes');
 app.use('/api', savingDepositRoutes);
 var userRoutes = require('./routes/user.routes');
 app.use('/api', userRoutes);
+var movieRoutes = require('./routes/movies.routes');
+app.use('/api', movieRoutes);
 
 // ^((?!api).)* is taken from https://stackoverflow.com/a/406408/989139. Thanks!
 // Serve UI on all paths other than /api/

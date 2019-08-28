@@ -18,7 +18,7 @@ import axios from 'axios';
 
 
 export const clrDep = () => {
-    return (dispatch => {
+    return ({
         type: CLR_USR
 
     })

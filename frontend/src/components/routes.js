@@ -12,6 +12,7 @@ import DepositForm from './depositForm';
 import EditDeposit from './editDeposit';
 import './Layouts/layouts.css'
 import { connect } from 'react-redux';
+import Movies from './moviesList';
 
 class Routes extends React.Component {
     render() {
@@ -26,6 +27,7 @@ class Routes extends React.Component {
                         <NavLink className="navlink-class" to="/google">Google</NavLink>
                         <NavLink className="navlink-class" to="/deposits">Deposits</NavLink>
                         <NavLink className="navlink-class" to="/users">Users</NavLink>
+                        <NavLink className="navlink-class" to="/movies">Movies</NavLink>
                         {
                             !isAuthenticated ?
                                 <NavLink className="navlink-class" to="/login">Login</NavLink>
@@ -41,6 +43,7 @@ class Routes extends React.Component {
                             <Route path="/createdeposit" component={createDeposit} />
                             <Route path="/deposits" component={Deposits} />
                             <Route path="/users" component={Users} />
+                            <Route path="/movies" component={Movies} />
                             <Route path="/logout" component={Logout} />
                             <Route path="/deposit/:depositid" component={EditDeposit} />
                         </div>
@@ -51,6 +54,7 @@ class Routes extends React.Component {
                             <Route path="/google" component={Login} />
                             <Route path="/createdeposit" component={Login} />
                             <Route path="/deposits" component={Login} />
+                            <Route path="/movies" component={Login} />
                             <Route path="/users" component={Login} />
                             <Route path="/deposit/:depositid" component={Login} />
                         </div>

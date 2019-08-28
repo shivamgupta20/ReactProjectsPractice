@@ -11,7 +11,7 @@ function removeUndefinedKeys(args) {
 async function getAll(where) {
     const {
         userId,
-        maxStartDate,
+        maxStartDate,//destructuring in javascript
         minEndDate
     } = where;
     let bankName;
@@ -33,7 +33,7 @@ async function getAll(where) {
     }
     if (maxStartDate) {
         startDate = {
-            '$lte': maxStartDate
+            '$lte': maxStartDate ///greater and less than in sequelize
         };
     }
     let endDate;
@@ -139,11 +139,11 @@ async function update(_id, args) {
         interest,
         tax
     }), {
-        where: removeUndefinedKeys({
-            _id,
-            userId
-        })
-    });
+            where: removeUndefinedKeys({
+                _id,
+                userId
+            })
+        });
     const affectedCount = response[0];
     debug('update', affectedCount);
     return affectedCount;

@@ -42,6 +42,7 @@ export const GET_USR_ERROR = 'GET_USR_ERROR';
 export const CLR_USR_START = 'CLR_USR_START';
 export const CLR_USR_SUCCESS = 'CLR_USR_SUCCESS';
 export const CLR_USR_ERROR = 'CLR_USR_ERROR';
+export const CLR_USR = 'CLR_USR';
 
 export const PUT_USR_START = 'PUT_USR_START';
 export const PUT_USR_SUCCESS = 'PUT_USR_SUCCESS';
