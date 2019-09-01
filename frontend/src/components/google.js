@@ -11,14 +11,14 @@ class Google extends React.Component {
                 <div className="gheader">
                     <ul>
                         <li className="gheaderOpt"><a href="sign.asp" className="custom-button"> Sign In </a></li>
-                        <li className="gheaderOpt"><img src={apps} style={{ "width": "30px" }} /></li>
+                        <li className="gheaderOpt"><img src={apps} alt="" style={{ "width": "30px" }} /></li>
                         <li className="gheaderOpt"><a href="news.asp">Images</a></li>
                         <li className="gheaderOpt"><a href="default.asp">Gmail</a></li>
                     </ul>
                 </div>
                 <div className="gbody">
 
-                    <img src={googlelogo} className="googlelogo" style={{ "width": "200px", "float": "center" }} />
+                    <img src={googlelogo} className="googlelogo" alt="" style={{ "width": "200px", "float": "center" }} />
                     <br />
                     <input type="search" className="searchbox" style={{ "width": "500px", "float": "center" }} />
                     <br />

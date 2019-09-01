@@ -14,5 +14,12 @@ module.exports = {
         params: {
             id: Joi.number().positive().required(),
         },
+    },
+
+    update: {
+        params: {
+            id: Joi.number().positive().required(),
+        },
     }
+
 }

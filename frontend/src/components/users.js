@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
 import { getUsers } from './store/actions/userAction';
 

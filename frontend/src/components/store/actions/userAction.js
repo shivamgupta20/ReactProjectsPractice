@@ -2,16 +2,7 @@ import {
     GET_USRS_START,
     GET_USRS_SUCCESS,
     GET_USRS_ERROR,
-    GET_USR_START,
-    GET_USR_SUCCESS,
-    GET_USR_ERROR,
-    PUT_USR_START,
-    PUT_USR_SUCCESS,
-    PUT_USR_ERROR,
-    POST_USR_START,
-    POST_USR_SUCCESS,
-    POST_USR_ERROR,
-
+    //    GET_USR_START,GET_USR_SUCCESS,GET_USR_ERROR,PUT_USR_START,PUT_USR_SUCCESS,PUT_USR_ERROR,POST_USR_START,POST_USR_SUCCESS,POST_USR_ERROR,
     CLR_USR
 } from '../actions/actionTypes';
 import axios from 'axios';
@@ -45,7 +36,10 @@ export const getUsers = () => {
     return (dispatch => {
         dispatch(getUsersStart());
         axios.get('/api/users')
-            .then(res => dispatch(getUsersSuccess(res)))
-            .catch(err => dispatch(getUsersError(err)))
+            .then(res => {
+                dispatch(getUsersSuccess(res));
+            })
+            .catch(err => dispatch(getUsersError(err)));
+
     })
 }

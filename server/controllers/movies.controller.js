@@ -3,20 +3,27 @@ const moviesModel = require('../models/movies.model')
 const debug = require('debug')('sd:controllers:movies.controller');
 
 async function getAll(req, res, next) {
-    debug('getAll', req.query);
-    const { title,
-        releaseDate,
-        duration,
-        genre,
-        description } = req.query;
-    const movs = await moviesModel.getAll({
+    // debug('getAll, req.query', req.query);
+    debug('getAll, req.body', req.user);
+    const _id = req.params.id;
+    const {
         title,
         releaseDate,
         duration,
         genre,
-        description
+        description,
+        image } = req.query;
+    // const { _id } = req.params.id;
+    const movs = await moviesModel.getAll({
+        _id,
+        title,
+        releaseDate,
+        duration,
+        genre,
+        description,
+        image
     })
-    debug('getAll movs', movs);
+    debug('getAll movs _id', _id);
     return res.json({
         ok: true,
         moviesList: movs,
@@ -50,7 +57,6 @@ async function create(req, res, next) {
 
 async function remove(req, res, next) {
     const _id = req.params.id;
-    // debug('movies.controller', _id, req.params);
     const affectedCount = await moviesModel.remove({
         _id
     });
@@ -64,6 +70,40 @@ async function remove(req, res, next) {
     else {
         return next(new createError.NotFound());
     }
-
 }
-module.exports = { getAll, create, remove };
+
+async function update(req, res, next) {
+    debug('movies.controller update', req.body);
+    const _id = req.params.id;
+    const args = req.body;
+    const { title,
+        releaseDate,
+        duration,
+        genre,
+        description,
+        image } = args;
+    const affectedCount = await moviesModel.update(_id, {
+        title,
+        releaseDate,
+        duration,
+        genre,
+        description,
+        image
+    });
+    if (affectedCount) {
+        return res.json({
+            ok: true,
+            message: 'movie record updated successfully.'
+        })
+    }
+    else {
+        return next(new createError.NotFound());
+    }
+}
+
+module.exports = {
+    getAll,
+    create,
+    remove,
+    update
+};

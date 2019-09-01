@@ -1,3 +1,7 @@
 .navlink-class{
     padding: 5px
 }
+
+.custom-label{
+    width: 100px;
+}

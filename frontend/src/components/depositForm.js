@@ -68,7 +68,7 @@ class DepositForm extends React.Component {
         console.log("in handleFormSubmit ", this.props)
 
         switch (requestType) {
-            case 'PUT':
+            // case 'PUT':
 
             case 'POST':
                 this.props.postDep(this.state.deposit);

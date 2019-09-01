@@ -1,6 +1,6 @@
 import { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT_START, AUTH_LOGOUT_SUCCESS, AUTH_LOGOUT_FAIL } from '../actions/actionTypes';
 import { FB_AUTH_START, FB_AUTH_SUCCESS, FB_AUTH_FAIL } from '../actions/actionTypes';
-import { USER_REGISTER_START, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL } from '../actions/actionTypes';
+import { USR_PROFILE_UPD, USER_REGISTER_START, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL } from '../actions/actionTypes';
 
 const initialState = {
     userData: "",
@@ -19,6 +19,14 @@ const authReducer = (state = initialState, action) => {
                 authenticated: action.payload.authenticated,
                 error: null,
                 loadAuth: true
+            }
+        case USR_PROFILE_UPD:
+            return {
+                ...state,
+                userData: action.payload,
+                authenticated: true,
+                error: null,
+                loadAuth: false
             }
         case AUTH_SUCCESS:
             return {

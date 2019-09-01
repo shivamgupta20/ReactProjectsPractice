@@ -37,12 +37,20 @@ const Movies = sequelize.define(
             }
         },
         description: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            validate: {}
+
         },
         image: {
-            type: Sequelize.BLOB
+            type: Sequelize.BLOB,
+            defaultValue: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
+            validate: {},
+            get() {
+                return this.getDataValue('image').toString('utf8');
+            }
         }
-    }, {
+    },
+    {
         timestamp: true,
         paranoid: true,
         version: true

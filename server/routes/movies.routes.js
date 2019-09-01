@@ -17,6 +17,8 @@ router.route('/movies')
 router.route('/movies/:id')
     .all(authentication.authenticate)
     .all(authorization.enforcePolicy(policyNames.CRUD_ALL_RECORDS))
-    .delete(validate(validations.remove), (req, res, next) => moviesController.remove(req, res, next));
+    .delete(validate(validations.remove), (req, res, next) => moviesController.remove(req, res, next))
+    .put(validate(validations.update), (req, res, next) => { moviesController.update(req, res, next) })
+    .get(validate(validations.getAll), (req, res, next) => moviesController.getAll(req, res, next))
 
 module.exports = router;

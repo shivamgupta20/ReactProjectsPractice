@@ -1,6 +1,8 @@
 import { AUTH_START, AUTH_FAIL, AUTH_SUCCESS, AUTH_LOGOUT_START, AUTH_LOGOUT_SUCCESS, AUTH_LOGOUT_FAIL } from './actionTypes';
-import { FB_AUTH_START, FB_AUTH_SUCCESS, FB_AUTH_FAIL } from './actionTypes';
-import { USER_REGISTER_START, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL } from '../actions/actionTypes';
+import { //FB_AUTH_START, 
+    FB_AUTH_SUCCESS, FB_AUTH_FAIL
+} from './actionTypes';
+import { USR_PROFILE_UPD, USER_REGISTER_START, USER_REGISTER_SUCCESS, USER_REGISTER_FAIL } from '../actions/actionTypes';
 import axios from 'axios';
 
 export const authStart = () => {
@@ -36,6 +38,7 @@ export const authLogin = (email, pass) => {
         dispatch(authStart());
         axios.post('/api/login', { email: email, password: pass })
             .then(res => {
+                updLocalStorage(res.data.profile);
                 dispatch(authSuccess(res));
             })
             .catch(err => {
@@ -118,5 +121,28 @@ export const usrRegister = (data) => {
             .catch(err => {
                 dispatch(usrRegisterFail(err));
             })
+    })
+}
+
+
+
+const updLocalStorage = (res) => {
+    localStorage.setItem("email", res.email);
+    localStorage.setItem("role", res.role);
+    localStorage.setItem("photo", res.photo);
+}
+
+export const updStore = () => {
+    const email = localStorage.getItem("email");
+    const role = localStorage.getItem("role");
+    const photo = localStorage.getItem("photo");
+    const res = { data: { 'email': email, 'role': role, 'photo': photo } };
+    return (dispatch => {
+        if (email !== "") {
+            dispatch({
+                type: USR_PROFILE_UPD,
+                payload: res
+            })
+        }
     })
 }

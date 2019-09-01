@@ -13,7 +13,8 @@ const Contacts = sequelize.define(
             }
         },
         image: {
-            type: Sequelize.BLOB
+            type: Sequelize.STRING,
+            validate: {}
         },
         Name: {
             type: Sequelize.STRING,
@@ -28,7 +29,8 @@ const Contacts = sequelize.define(
             }
         },
         Description: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            validate: {}
         },
         category: {
             type: Sequelize.ENUM('Actor', 'Producer', 'Director', 'Writer', 'Musician', 'Cinematographer', 'Editor'),

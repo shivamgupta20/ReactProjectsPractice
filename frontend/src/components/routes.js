@@ -8,17 +8,30 @@ import Deposits from './deposits';
 import createDeposit from './createDeposit';
 import Users from './users';
 import Google from './google';
-import DepositForm from './depositForm';
 import EditDeposit from './editDeposit';
 import './Layouts/layouts.css'
 import { connect } from 'react-redux';
-import Movies from './moviesList';
+import Movies from './movies';
+import createMovies from './createMovies';
+import ListMovies from './listmovies';
+import EditMovie from './editmovies';
+import { updStore } from './store/actions/authActions';
 
 class Routes extends React.Component {
     render() {
         let isAuthenticated = true;
+        // if (this.props.auth.authenticated === false)
+        //     this.props.updStore();
         if (this.props.auth.authenticated === false)
             isAuthenticated = false;
+        // else
+        //     isAuthenticated = true;
+
+        // let role = this.props.auth;
+        // console.log(role);
+        // debugger;
+        if (this.props.auth.userData)
+            console.log(this.props.auth.userData.data.role);
         return (
             <div>
                 <Router>
@@ -34,6 +47,12 @@ class Routes extends React.Component {
                                 :
                                 <NavLink className="navlink-class" to="/logout">Logout</NavLink>
                         }
+                        {
+                            this.props.auth.userData &&
+                            <>
+                                <NavLink className="navlink-class" to="/admin/movies">Admin Movies</NavLink>
+                            </>
+                        }
                     </nav>
                     {isAuthenticated ?
                         <div>
@@ -46,20 +65,15 @@ class Routes extends React.Component {
                             <Route path="/movies" component={Movies} />
                             <Route path="/logout" component={Logout} />
                             <Route path="/deposit/:depositid" component={EditDeposit} />
+                            <Route path="/admin/createmovies" component={createMovies} />
+                            <Route path="/admin/movies" component={ListMovies} />
+                            <Route path="/admin/editmovies/:movieid" component={EditMovie}></Route>
                         </div>
                         :
                         <div>
-                            <Route exact path="/" component={Login} />
-                            <Route path="/login" component={Login} />
-                            <Route path="/google" component={Login} />
-                            <Route path="/createdeposit" component={Login} />
-                            <Route path="/deposits" component={Login} />
-                            <Route path="/movies" component={Login} />
-                            <Route path="/users" component={Login} />
-                            <Route path="/deposit/:depositid" component={Login} />
+                            <Route path="/" component={Login} />
                         </div>
                     }
-
                 </Router>
             </div>
         )
@@ -68,4 +82,4 @@ class Routes extends React.Component {
 const mapStateToProps = state => ({
     auth: state.auth
 })
-export default connect(mapStateToProps)(Routes);
+export default connect(mapStateToProps, { updStore })(Routes);

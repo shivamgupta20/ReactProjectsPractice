@@ -15,7 +15,9 @@ class Login extends React.Component {
         this.fieldUpdate = this.fieldUpdate.bind(this);
         this.signup = this.signup.bind(this);
         this.state = { username: "", password: "", cpassword: "", email: "" }
+        // this.updateLoginLocalStorage = this.updateLoginLocalStorage.bind(this);
     }
+
 
     userLogin() {
         const username = this.state.username
