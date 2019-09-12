@@ -10,5 +10,7 @@ const validate = require('express-validation');
 router.route('/cimages')
     .all(authentication.authenticate)
     .all(authorization.enforcePolicy(policyNames.CRUD_ALL_RECORDS))
-    .get(validate(validations.getAll), (req, res, next) => carouselImagesController.getAll(req, res, next));
-    // .post((req, res, next) => carouselImagesController.create(req, res, next));
+    .get(validate(validations.getAll), (req, res, next) => carouselImagesController.getAll(req, res, next))
+    .post((req, res, next) => carouselImagesController.create(req, res, next));
+
+module.exports = router;
