@@ -33,7 +33,7 @@ async function getAll(req, res, next) {
 
 async function create(req, res, next) {
     const args = req.body;
-    debug('sd:controllers:movie.controller create', req);
+    // debug('sd:controllers:movie.controller create', req);
     const {
         title,
         releaseDate,

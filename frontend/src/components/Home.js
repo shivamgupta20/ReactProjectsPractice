@@ -16,16 +16,21 @@ class Home extends React.Component {
     }
     render() {
         return (
-            <Warning warn={this.state.status} />
+            <div>
+                <p contentEditable="true" title="This tooltip comes up with title attribute.">
+                    Blocking your <q>calendar</q> <small>to go</small> through the <mark>UBS Compliance</mark> Induction Classroom <strong> Training. </strong> Please make <em>every effort</em> to join <sub>this training</sub> as its<sup> mandated by</sup> UBS
+                </p>
+                <p>
+                    &nbsp; &lt; &gt; &amp; &copy; &euro; &pound; &reg;
+                </p>
+                <p>
+                    input element types = text,password,checkbox,radio,button,submit,reset,image,file,hidden,email,number,range,search,URL,color,date,month,week,time. <br />
+                    input element attributes = Placeholder,Pattern,Min,Max,Step,Required,Multiple,Form-override
+                </p>
+
+            </div>
         )
     }
-    // render() {
-    //     // return (<h1>{"I'm rendered"} here!!</h1>)
-    //     return (
-    //         <div>
-    //             < h1 style={{ color: "Blue", fontFamily: "Arial" }}> I'm styled </h1>
-    //         </div>);
 
-    // }
 }
 export default Home;

@@ -39,7 +39,7 @@ class MovieForm extends React.Component {
                 <h3>Adding Movies</h3>
                 <form>
                     <label className="custom-label" >Title: </label>
-                    <input type="text" id="title" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].title}></input><br />
+                    <input type="text" id="title" pattern="[a-z A-Z]" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].title}></input><br />
                     <label className="custom-label">Release Date:</label>
                     <input type="date" id="releaseDate" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].releaseDate}></input><br />
                     <label className="custom-label">Duration:</label>
@@ -47,7 +47,9 @@ class MovieForm extends React.Component {
                     <label className="custom-label">Genre:</label>
                     <input type="text" id="genre" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].genre}></input><br />
                     <label className="custom-label">Description:</label>
-                    <input type="text" id="description" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].description}></input><br /><br />
+                    <input type="text" id="description" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].description}></input><br />
+                    <label className="custom-label">Language</label>
+                    <input type="text" id="language" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].language}></input><br /><br />
                     <button onClick={this.submitMovieReq}>Submit</button>
                     <button>Cancel</button>
                 </form>

@@ -1,5 +1,4 @@
 var express = require('express');
-var moviesController = require('../controllers/movies.controller');
 const router = express.Router();
 const debug = require('debug')('sd:routes:movies.routes');
 const authentication = require('../helpers/authentication.helper');

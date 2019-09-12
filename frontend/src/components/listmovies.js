@@ -29,8 +29,8 @@ class ListMovies extends React.Component {
         this.props.delMovie(id);
     }
     render() {
-        const moviesData = (this.props.movies.MoviesData === "");
-        console.log(this.props);
+        // const moviesData = (this.props.movies.MoviesData === "");
+        // console.log(this.props);
         return (
             this.props.movies.MoviesData &&
             this.props.movies.MoviesData.moviesList &&

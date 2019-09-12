@@ -24,18 +24,15 @@ class Routes extends React.Component {
         //     this.props.updStore();
         if (this.props.auth.authenticated === false)
             isAuthenticated = false;
-        // else
-        //     isAuthenticated = true;
-
-        // let role = this.props.auth;
-        // console.log(role);
+        else
+            isAuthenticated = true;
         // debugger;
-        if (this.props.auth.userData)
-            console.log(this.props.auth.userData.data.role);
+        // if (this.props.auth.userData)
+        //     console.log(this.props.auth.userData.data.role);
         return (
             <div>
                 <Router>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <nav className="navbar navbar-expand-9lg navbar-light bg-light">
                         <NavLink className="navlink-class" to="/">Home</NavLink>
                         <NavLink className="navlink-class" to="/google">Google</NavLink>
                         <NavLink className="navlink-class" to="/deposits">Deposits</NavLink>

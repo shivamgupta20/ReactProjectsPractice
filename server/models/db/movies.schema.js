@@ -39,7 +39,13 @@ const Movies = sequelize.define(
         description: {
             type: Sequelize.STRING,
             validate: {}
-
+        },
+        language: {
+            type: Sequelize.ENUM('Hindi', 'English'),
+            validate: {
+                notEmpty: true
+            },
+            allowNull: false
         },
         image: {
             type: Sequelize.BLOB,

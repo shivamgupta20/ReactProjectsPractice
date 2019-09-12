@@ -24,7 +24,7 @@ class Deposits extends React.Component {
         let sum = 0;
         if (!depsData) {
             this.props.deposits.depositsData.map(sumdep => {
-                sum = Number(sum) + Number(sumdep.initialAmount);
+                return sum = Number(sum) + Number(sumdep.initialAmount);
             })
         }
         return (
