@@ -10,7 +10,7 @@ function removeUndefinedKeys(args) {
 }
 
 async function getAll(where) {
-    const { _id, title, releaseDate, duration, genre, description } = where;
+    const { _id, title, releaseDate, duration, genre, description, language } = where;
     if (where.title)
         title = where.title;
     if (where.releaseDate)
@@ -28,13 +28,14 @@ async function getAll(where) {
             releaseDate,
             duration,
             genre,
-            description
+            description,
+            language
         })
     }).map
         (el => el.get({
             plain: true
         }));
-    debug('movies.model', movies);
+    // debug('movies.model', movies);
     return movies;
 }
 
@@ -43,14 +44,16 @@ async function create(args) {
         releaseDate,
         duration,
         genre,
-        description
+        description,
+        language
     } = args;
     const movie = await moviesSchema.create({
         title,
         releaseDate,
         duration,
         genre,
-        description
+        description,
+        language
     });
     return movie.get({
         plain: true
@@ -76,7 +79,8 @@ async function update(_id, args) {
         duration,
         genre,
         description,
-        image
+        image,
+        language
     } = args;
     const response = await moviesSchema.update(removeUndefinedKeys({
         title,
@@ -84,7 +88,8 @@ async function update(_id, args) {
         duration,
         genre,
         description,
-        image
+        image,
+        language
     }), {
             where: removeUndefinedKeys({
                 _id

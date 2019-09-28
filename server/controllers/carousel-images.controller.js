@@ -23,7 +23,7 @@ async function getAll(req, res, next) {
 
 async function create(req, res, next) {
     const args = req.body;
-    debug('sd:controller:carousel-images.controller create', args)
+    debug('sd:controller:carousel-images.controller create', req)
     const {
         image,
         category,

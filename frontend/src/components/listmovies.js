@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getMovies, delMovie, putMovieImage } from './store/actions/movieAction';
 import { Link } from 'react-router-dom';
+import SideNav from './sideNav';
+import './Layouts/movies.css';
 
 class ListMovies extends React.Component {
 
@@ -18,7 +20,7 @@ class ListMovies extends React.Component {
         var reader = new FileReader();
         var img = "";
         reader.onloadend = function () {
-            debugger;
+
             img = reader.result;
             self.props.putMovieImage({ image: img }, id);
         }
@@ -29,60 +31,61 @@ class ListMovies extends React.Component {
         this.props.delMovie(id);
     }
     render() {
-        // const moviesData = (this.props.movies.MoviesData === "");
-        // console.log(this.props);
         return (
-            this.props.movies.MoviesData &&
-            this.props.movies.MoviesData.moviesList &&
             <div>
-                <h3>Listing Movies</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th> Image</th>
-                            <th> Id </th>
-                            <th> Title </th>
-                            <th> Release Date</th>
-                            <th> Duration </th>
-                            <th> Genre </th>
-                            <th> Description</th>
-                            <th> Edit</th>
-                            <th> Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.props.movies.MoviesData.moviesList.map(eachMovie =>
-                                <tr key={eachMovie._id}>
-                                    <td>
-                                        <img src={eachMovie.image} alt="" style={{ width: "100px" }} />
-                                        <input type="file" onChange={(e) => this.fileSelect(e, eachMovie._id)} />
-                                    </td>
-                                    <td>{eachMovie._id}</td>
-                                    <td>{eachMovie.title}</td>
-                                    <td>{eachMovie.releaseDate}</td>
-                                    <td>{eachMovie.duration}</td>
-                                    <td>{eachMovie.genre}</td>
-                                    <td>{eachMovie.description}</td>
-                                    <td>
-                                        <Link to={`/admin/editmovies/${eachMovie._id}`}>
-                                            Edit
-                                        </Link>
-                                    </td>
-                                    <td>
-                                        <button onClick={(e) => { this.deleteMov(e, eachMovie._id) }}>
-                                            Delete
-                                        </button>
-                                    </td>
+                <SideNav />
+                {this.props.movies.MoviesData &&
+                    this.props.movies.MoviesData.moviesList &&
+                    <div className="MovieList">
+                        <h3>Listing Movies</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th> Image</th>
+                                    <th> Id </th>
+                                    <th> Title </th>
+                                    <th> Release Date</th>
+                                    <th> Duration </th>
+                                    <th> Genre </th>
+                                    <th> Description</th>
+                                    <th> Edit</th>
+                                    <th> Delete</th>
                                 </tr>
-                            )}
-                    </tbody>
-                </table><br /><br />
-                <button>
-                    <Link to={'/admin/createmovies'}>
-                        Add Movie
+                            </thead>
+                            <tbody>
+                                {
+                                    this.props.movies.MoviesData.moviesList.map(eachMovie =>
+                                        <tr key={eachMovie._id}>
+                                            <td>
+                                                <img src={eachMovie.image} alt="" style={{ width: "100px" }} />
+                                                <input type="file" onChange={(e) => this.fileSelect(e, eachMovie._id)} />
+                                            </td>
+                                            <td>{eachMovie._id}</td>
+                                            <td>{eachMovie.title}</td>
+                                            <td>{eachMovie.releaseDate}</td>
+                                            <td>{eachMovie.duration}</td>
+                                            <td>{eachMovie.genre}</td>
+                                            <td>{eachMovie.description}</td>
+                                            <td>
+                                                <Link to={`/admin/editmovies/${eachMovie._id}`}>
+                                                    Edit
+                                        </Link>
+                                            </td>
+                                            <td>
+                                                <button onClick={(e) => { this.deleteMov(e, eachMovie._id) }}>
+                                                    Delete
+                                        </button>
+                                            </td>
+                                        </tr>
+                                    )}
+                            </tbody>
+                        </table><br /><br />
+                        <button>
+                            <Link to={'/admin/createmovies'}>
+                                Add Movie
                     </Link>
-                </button>
+                        </button>
+                    </div>}
             </div>)
     }
 }

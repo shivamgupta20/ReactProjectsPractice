@@ -57,10 +57,17 @@ class CreateMovies extends React.Component {
                     <input type="text" id="genre" onChange={this.fieldUpdate}></input><br />
                     <label for="description" className="custom-label">Description:</label>
                     <textarea id="description" row="5" column="20" onChange={this.fieldUpdate}></textarea><br />
+                    <label for="language" className="custom-label">Language:</label>
+                    <input type="text" id="language" onChange={this.fieldUpdate}></input><br />
                     <input type="file" id="image" onChange={this.imageUpload}></input><br /><br />
 
-                    <button onClick={this.createMovieReq}><Link to={'/admin/movies'}>Submit</Link></button>
-                    <button><Link to={'/admin/movies'}>Cancel</Link></button>
+                    <button onClick={this.createMovieReq}>
+                        {/* <Link to={'/admin/movies'}> */}
+                        Submit
+                    {/* </Link> */}
+                    </button>
+                    <button><Link to={'/admin/movies'}>Cancel</Link>
+                    </button>
                 </form>
             </div>
         )

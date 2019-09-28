@@ -14,7 +14,7 @@ const CarouselImages = sequelize.define(
             }
         },
         image: {
-            type: Sequelize.BLOB,
+            type: Sequelize.BLOB('meduim'),
             defaultValue: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
             validate: {},
             get() {
@@ -22,17 +22,12 @@ const CarouselImages = sequelize.define(
             }
         },
         category: {
-            type: Sequelize.ENUM('MOVIES'),
-            validate: {
-                notEmpty: true
-            },
-            allowNull: false
+            type: Sequelize.STRING,
+            validate: {}
         },
-        moviesId: {
+        movieId: {
             type: Sequelize.INTEGER,
-            validate: {
-                notEmpty: true
-            }
+            validate: {}
         }
     }, {
         timestamp: true,

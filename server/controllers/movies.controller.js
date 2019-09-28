@@ -4,7 +4,7 @@ const debug = require('debug')('sd:controllers:movies.controller');
 
 async function getAll(req, res, next) {
     // debug('getAll, req.query', req.query);
-    debug('getAll, req.body', req.user);
+    // debug('getAll, req.body', req.user);
     const _id = req.params.id;
     const {
         title,
@@ -12,7 +12,8 @@ async function getAll(req, res, next) {
         duration,
         genre,
         description,
-        image } = req.query;
+        image,
+        language } = req.query;
     // const { _id } = req.params.id;
     const movs = await moviesModel.getAll({
         _id,
@@ -21,7 +22,8 @@ async function getAll(req, res, next) {
         duration,
         genre,
         description,
-        image
+        image,
+        language
     })
     debug('getAll movs _id', _id);
     return res.json({
@@ -39,14 +41,16 @@ async function create(req, res, next) {
         releaseDate,
         duration,
         genre,
-        description
+        description,
+        language
     } = args;
     const movie = await moviesModel.create({
         title,
         releaseDate,
         duration,
         genre,
-        description
+        description,
+        language
     })
     res.json({
         ok: true,
@@ -73,7 +77,7 @@ async function remove(req, res, next) {
 }
 
 async function update(req, res, next) {
-    debug('movies.controller update', req.body);
+    // debug('movies.controller update', req.body);
     const _id = req.params.id;
     const args = req.body;
     const { title,

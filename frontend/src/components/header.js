@@ -15,7 +15,7 @@ class Header extends React.Component {
                 <div className="menuHeader">
                     <ul>
                         <li className="menuOptions"><Link to='/movies'> Movies</Link></li>
-                        <li className="menuOptions">Events</li>
+                        <li className="menuOptions"><Link to='/events'>Events</Link></li>
                         <li className="menuOptions"><Link to='/plays'>Plays</Link></li>
                     </ul>
                 </div>

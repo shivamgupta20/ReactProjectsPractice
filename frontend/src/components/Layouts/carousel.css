@@ -1,0 +1,23 @@
+.carousel{
+    overflow: hidden;
+}
+.sideimage{
+    width: 25%;
+}
+.slidefullimage{
+    width: 50%;
+    position: absolute;
+    left: 25%;
+}
+.dot{
+    width:10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    margin: 2px;
+    display: inline-block;
+}
+.dotpanel{
+    text-align: center;
+}

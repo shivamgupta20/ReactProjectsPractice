@@ -12,14 +12,16 @@ var debug = require('debug')('sd:app');
 var app = express();
 var cors = require('cors');
 
+
 app.use(cors());
 app.use(compression()); //Compress all routes. For a high-traffic website in production you wouldn't use this middleware. Instead you would use a reverse proxy like Nginx.
 app.use(helmet()); // See https://helmetjs.github.io/docs/ for more information on what headers it sets/vulnerabilities it protects against
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, '../client/build')));
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({
-  extended: false
+  extended: true,
+  limit: '50mb'
 }));
 app.use(cookieParser());
 debug('config.session.secret', config.session.secret);
