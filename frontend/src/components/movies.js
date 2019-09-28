@@ -9,9 +9,7 @@ import { Link } from 'react-router-dom';
 import TileData from './tiledata';
 
 class Movies extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     componentDidMount() {
         this.props.getCImages('Movies');
         this.props.getMovies();
@@ -19,7 +17,7 @@ class Movies extends React.Component {
 
 
     render() {
-        console.log(this.props.movies)
+        // console.log(this.props.movies)
         return (
             <div>
                 <Header />
@@ -43,7 +41,7 @@ class Movies extends React.Component {
                 {this.props.movies &&
                     this.props.movies.moviesList.map(list =>
                         <div>
-                            <Link to={`/movies/${list._id}`}>
+                            <Link to={`/movie/${list._id}`}>
                                 <TileData data={list} />
                             </Link>
                         </div>

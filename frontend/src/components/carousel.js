@@ -76,13 +76,13 @@ class Carousel extends React.Component {
             <div style={{ 'overflow': 'hidden' }}>
                 <div className="carousel" >
                     <div className="sideimage" style={{ 'float': 'left' }}>
-                        <img src={this.state.image1} alt="Carousel Image" style={{ 'width': '200%', 'left': '-100%' }} />
+                        <img src={this.state.image1} alt="Carousel Img" style={{ 'width': '200%', 'left': '-100%' }} />
                     </div>
                     <div className="slidefullimage">
-                        <img src={this.state.image2} alt="Carousel Image" style={{ 'width': '100%' }} />
+                        <img src={this.state.image2} alt="Carousel Img" style={{ 'width': '100%' }} />
                     </div>
                     <div className="sideimage" style={{ 'float': 'right' }}>
-                        <img src={this.state.image3} alt="Carousel Image" style={{ 'width': '200%' }} />
+                        <img src={this.state.image3} alt="Carousel Img" style={{ 'width': '200%' }} />
                     </div>
                 </div>
                 <div className="dotpanel">

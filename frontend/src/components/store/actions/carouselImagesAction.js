@@ -46,11 +46,6 @@ export const postCImages = (data) => {
     return (dispatch => {
         dispatch(postCImagesStart());
         // console.log(data);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
         axios.post('/api/cimages', data)
             .then(res => {
                 dispatch(postCImagesSuccess(res));

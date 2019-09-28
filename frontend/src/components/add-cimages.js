@@ -78,7 +78,7 @@ class AddCImages extends React.Component {
                     this.props.cImage &&
                     this.props.cImage.carouselImages.map(img =>
 
-                        <img src={img.image} style={{ width: '300px' }} />
+                        <img src={img.image} style={{ width: '300px' }} alt="c-img" />
                     )
 
                 }

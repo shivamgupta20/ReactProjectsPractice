@@ -4,15 +4,14 @@ import heartIcon from '../media/heart-icon.jpg';
 
 class TileData extends React.Component {
     render() {
-        console.log(this.props.data)
         return (
             <div className='tile'>
                 <div >
-                    <img src={this.props.data.image} alt="carousel image" />
+                    <img src={this.props.data.image} alt="carousel img" />
                 </div>
                 <div className="tileinfo">
                     <div className="rating">
-                        <img src={heartIcon} style={{ 'width': '20px' }} />
+                        <img src={heartIcon} style={{ 'width': '20px' }} alt="icon" />
                         80%
                     </div>
                     <div className="info">
