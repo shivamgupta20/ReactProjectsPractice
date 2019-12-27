@@ -1,9 +1,9 @@
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 const sequelize = require('./connection');
-const debug = require('debug')('sd:models:db:movies.schema')
+const debug = require('debug')('sd:models:db:contact.schema')
 
-const Movies = sequelize.define(
-    "movies", {
+const contacts = sequelize.define(
+    "contacts", {
         _id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -12,39 +12,21 @@ const Movies = sequelize.define(
                 notEmpty: true
             }
         },
-        title: {
+        name: {
             type: Sequelize.STRING,
             validate: {
                 notEmpty: true
             }
         },
-        releaseDate: {
+        dob: {
             type: Sequelize.DATEONLY,
             validate: {
                 isDate: true
             }
         },
-        duration: {
-            type: Sequelize.INTEGER,
-            validate: {
-                max: 300
-            }
-        },
-        genre: {
-            type: Sequelize.STRING,
-            validate: {
-                notEmpty: true
-            }
-        },
         description: {
-            type: Sequelize.STRING(2000),
+            type: Sequelize.STRING,
             validate: {}
-        },
-        language: {
-            type: Sequelize.ENUM('Hindi', 'English'),
-            validate: {
-
-            }
         },
         image: {
             type: Sequelize.BLOB,
@@ -54,10 +36,12 @@ const Movies = sequelize.define(
                 return this.getDataValue('image').toString('utf8');
             }
         },
-        fullimage: {
-            type: Sequelize.STRING(2000),
-            validate: {},
-        }
+        // category: {
+        //     type: Sequelize.ENUM('Actor', 'Producer', 'Director', 'Writer', 'Musician', 'Cinematographer', 'Editor'),
+        //     validate: {
+        //         notEmpty: true
+        //     }
+        // }
     },
     {
         timestamp: true,
@@ -66,12 +50,13 @@ const Movies = sequelize.define(
     }
 );
 
+
 sequelize.sync({ force: false })
     .then(() => {
-        debug('Movies table created if not already present');
+        debug('Contacts table created if not already present');
     })
     .catch(error => {
         debug('oooh, did you enter wrong database credentials?', error)
     })
 
-module.exports = Movies;
+module.exports = contacts;

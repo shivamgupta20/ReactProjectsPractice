@@ -46,6 +46,29 @@ export const getMovie = (id) => {
     })
 }
 
+export const getMovieByCriteria = (data) => {
+    return (dispatch => {
+        dispatch({
+            type: GET_MOVIE_START
+        })
+        console.log(data);
+        axios.get('/api/movies', data)
+            .then(res => {
+                console.log(res);
+                dispatch({
+                    type: GET_MOVIE_SUCCESS,
+                    payload: res.data
+                })
+            })
+            .catch(err => {
+                dispatch({
+                    type: GET_MOVIE_ERROR,
+                    payload: err
+                })
+            })
+    })
+}
+
 export const postMovie = (data) => {
     return (dispatch => {
         dispatch({ type: POST_MOVIE_START });

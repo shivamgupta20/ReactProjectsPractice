@@ -10,6 +10,7 @@ function removeUndefinedKeys(args) {
 }
 
 async function getAll(where) {
+    debug('movies.model.where', where)
     const { _id, title, releaseDate, duration, genre, description, language } = where;
     if (where.title)
         title = where.title;

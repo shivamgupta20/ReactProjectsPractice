@@ -17,7 +17,9 @@ import ListMovies from './listmovies';
 import EditMovie from './editmovies';
 import AddCImages from './add-cimages';
 import { updStore } from './store/actions/authActions';
-import MovieDetail from './moviedetail';
+import MovieDetailSummary from './moviedetailsummary';
+import UReview from './ureview';
+import CReview from './creview';
 
 class Routes extends React.Component {
     render() {
@@ -68,7 +70,9 @@ class Routes extends React.Component {
                             <Route path="/admin/movies" component={ListMovies} />
                             <Route path="/admin/editmovies/:movieid" component={EditMovie}></Route>
                             <Route path="/admin/cImages" component={AddCImages}></Route>
-                            <Route path="/movie/:movid" component={MovieDetail} />
+                            <Route exact path="/movie/:movid" component={MovieDetailSummary} />
+                            <Route path="/movie/:movid/creview" component={CReview} />
+                            <Route path="/movie/:movid/ureview" component={UReview} />
                         </div>
                         :
                         <div>

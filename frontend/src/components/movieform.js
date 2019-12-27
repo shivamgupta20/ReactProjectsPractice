@@ -41,6 +41,8 @@ class MovieForm extends React.Component {
                     <label className="custom-label" >Title: </label>
                     <input type="text" id="title" pattern="[a-z A-Z]" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].title}></input><br />
                     <label className="custom-label">Release Date:</label>
+                    <label className="custom-label">Image URL:</label>
+                    <input type="text" id="fullimage" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].duration}></input><br />
                     <input type="date" id="releaseDate" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].releaseDate}></input><br />
                     <label className="custom-label">Duration:</label>
                     <input type="number" id="duration" onChange={this.fieldUpdate} defaultValue={this.props.movie.movieData.moviesList[0].duration}></input><br />

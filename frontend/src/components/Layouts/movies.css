@@ -1,4 +1,13 @@
-
+.mov{
+    background: #f2f2f2;
+}
+.searchLang{
+width:100%;
+top:0px;
+display: inline-block;
+background: #ffffff;
+padding: 20px;
+}
 .MovieList{
     margin-left: 160px;
 }
@@ -67,4 +76,13 @@ li:active, li:hover{
 
 .link{
     text-decoration: none;
+}
+.movies{
+    display: inline-block;
+    width: 80%;
+}
+.searchPanel{
+    width: 20%;
+    display: inline-block;
+    float: left;
 }

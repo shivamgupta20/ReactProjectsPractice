@@ -12,6 +12,7 @@ class ListMovies extends React.Component {
         this.state = "";
         this.props.getMovies();
         this.fileSelect = this.fileSelect.bind(this);
+        this.fileSelect = this.fileSelect1.bind(this);
         this.deleteMov = this.deleteMov.bind(this);
     }
     fileSelect(e, id) {
@@ -26,11 +27,24 @@ class ListMovies extends React.Component {
         }
         reader.readAsDataURL(file);
     }
+    fileSelect1(e, id) {
+        const self = this;
+        const file = e.target.files[0];
+        var reader = new FileReader();
+        var img = "";
+        reader.onloadend = function () {
+
+            img = reader.result;
+            self.props.putMovieImage({ image1: img }, id);
+        }
+        reader.readAsDataURL(file);
+    }
     deleteMov(e, id) {
         e.preventDefault();
         this.props.delMovie(id);
     }
     render() {
+        console.log(this.props.movies);
         return (
             <div>
                 <SideNav />
@@ -42,6 +56,7 @@ class ListMovies extends React.Component {
                             <thead>
                                 <tr>
                                     <th> Image</th>
+                                    <th> Image 2</th>
                                     <th> Id </th>
                                     <th> Title </th>
                                     <th> Release Date</th>
@@ -59,6 +74,10 @@ class ListMovies extends React.Component {
                                             <td>
                                                 <img src={eachMovie.image} alt="" style={{ width: "100px" }} />
                                                 <input type="file" onChange={(e) => this.fileSelect(e, eachMovie._id)} />
+                                            </td>
+                                            <td>
+                                                <img src={eachMovie.fullimage} alt="" style={{ width: "100px" }} />
+                                                {/* <input type="file" onChange={(e) => this.fileSelect1(e, eachMovie._id)} /> */}
                                             </td>
                                             <td>{eachMovie._id}</td>
                                             <td>{eachMovie.title}</td>
