@@ -1,9 +1,9 @@
 var express = require('express');
 const router = express.Router();
-const debug = require('debug')('sd:routes:movies.routes');
+const debug = require('debug')('sd:routes:contact.routes');
 const authentication = require('../helpers/authentication.helper');
 const { authorization, policyNames } = require('../helpers/authorization.helper');
-var validations = require('./validations/movies.validations');
+var validations = require('./validations/contacts.validations');
 const validate = require('express-validation');
 var contactController = require('../controllers/contact.controller');
 

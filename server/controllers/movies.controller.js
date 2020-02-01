@@ -5,7 +5,7 @@ const debug = require('debug')('sd:controllers:movies.controller');
 async function getAll(req, res, next) {
     // debug('getAll, req.query', req.query);
     // debug('getAll, req.body', req.user);
-    debug('moies.controller', req);
+    // debug('moies.controller', req);
 
     const _id = req.params.id;
     const {

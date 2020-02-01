@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 const sequelize = require('./connection');
 const debug = require('debug')('sd:models:db:contact.schema')
 
-const contacts = sequelize.define(
-    "contacts", {
+const Contact = sequelize.define(
+    "contact", {
         _id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -50,7 +50,6 @@ const contacts = sequelize.define(
     }
 );
 
-
 sequelize.sync({ force: false })
     .then(() => {
         debug('Contacts table created if not already present');
@@ -59,4 +58,4 @@ sequelize.sync({ force: false })
         debug('oooh, did you enter wrong database credentials?', error)
     })
 
-module.exports = contacts;
+module.exports = Contact;

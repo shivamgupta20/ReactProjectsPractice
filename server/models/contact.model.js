@@ -6,11 +6,11 @@ function removeUndefinedKeys(args) {
     const result = JSON.parse(JSON.stringify(args));
     debug('removeUndefinedKeys', result);
     return result;
-    debug('movies.model removeUndefinedKeys')
+    debug('contact.model removeUndefinedKeys')
 }
 
 async function getAll(where) {
-    // debug('movies.model.where', where)
+    // debug('contact.model.where', where)
     const { _id, name, dob, description } = where;
     if (where.name)
         name = where.name;
@@ -36,7 +36,7 @@ async function getAll(where) {
 
 async function create(args) {
     const { name, dob, description } = args;
-    const contact = await moviesSchema.create({
+    const contact = await contactSchema.create({
         name,
         dob,
         description

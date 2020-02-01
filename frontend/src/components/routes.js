@@ -20,6 +20,8 @@ import { updStore } from './store/actions/authActions';
 import MovieDetailSummary from './moviedetailsummary';
 import UReview from './ureview';
 import CReview from './creview';
+import Contact from './contact';
+import CreateContact from './createcontact';
 
 class Routes extends React.Component {
     render() {
@@ -66,13 +68,17 @@ class Routes extends React.Component {
                             <Route path="/movies" component={Movies} />
                             <Route path="/logout" component={Logout} />
                             <Route path="/deposit/:depositid" component={EditDeposit} />
+                            <Route exact path="/movie/:movid" component={MovieDetailSummary} />
+                            <Route path="/movie/:movid/creview" component={CReview} />
+                            <Route path="/movie/:movid/ureview" component={UReview} />
+
                             <Route path="/admin/createmovies" component={createMovies} />
                             <Route path="/admin/movies" component={ListMovies} />
                             <Route path="/admin/editmovies/:movieid" component={EditMovie}></Route>
                             <Route path="/admin/cImages" component={AddCImages}></Route>
-                            <Route exact path="/movie/:movid" component={MovieDetailSummary} />
-                            <Route path="/movie/:movid/creview" component={CReview} />
-                            <Route path="/movie/:movid/ureview" component={UReview} />
+                            <Route path="/admin/contact" component={Contact}></Route>
+                            <Route path="/admin/createcontact" component={CreateContact}></Route>
+
                         </div>
                         :
                         <div>

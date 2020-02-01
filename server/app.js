@@ -56,6 +56,8 @@ var carouselImagesRoute = require('./routes/carousel-images.routes')
 app.use('/api', carouselImagesRoute);
 var contactRoutes = require('./routes/contacts.routes');
 app.use('/api', contactRoutes);
+// var castRoutes = require('./routes/cast.routes');
+// app.use('/api', castRoutes);
 
 // ^((?!api).)* is taken from https://stackoverflow.com/a/406408/989139. Thanks!
 // Serve UI on all paths other than /api/

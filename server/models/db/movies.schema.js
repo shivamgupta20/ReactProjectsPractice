@@ -2,8 +2,8 @@ const Sequelize = require("sequelize");
 const sequelize = require('./connection');
 const debug = require('debug')('sd:models:db:movies.schema')
 
-const Movies = sequelize.define(
-    "movies", {
+const Movie = sequelize.define(
+    "movie", {
         _id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -74,4 +74,4 @@ sequelize.sync({ force: false })
         debug('oooh, did you enter wrong database credentials?', error)
     })
 
-module.exports = Movies;
+module.exports = Movie;

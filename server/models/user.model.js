@@ -6,7 +6,7 @@ function removeUndefinedKeys(args) {
 }
 
 async function findOne(where) {
-    debug('findOne', 'where', where);
+    // debug('findOne', 'where', where);
     const {
         email,
         _id
@@ -90,13 +90,13 @@ async function update(args, where) {
         photo,
         role,
     }), {
-        where: removeUndefinedKeys({
-            emailVerificationCode: where.emailVerificationCode,
-            password: where.password,
-            _id: where._id,
-            role: where.role,
-        })
-    });
+            where: removeUndefinedKeys({
+                emailVerificationCode: where.emailVerificationCode,
+                password: where.password,
+                _id: where._id,
+                role: where.role,
+            })
+        });
     const affectedCount = response[0];
     debug('update', 'affectedCount', affectedCount);
     return affectedCount;
