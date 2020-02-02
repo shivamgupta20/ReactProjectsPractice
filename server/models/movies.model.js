@@ -1,5 +1,8 @@
 const moviesSchema = require("./db/movies.schema");
 const debug = require('debug')('sd:models:db:movies.schema');
+// const Contact = require('./contact.model')
+const Contact = require('../models/db/contact.schema');
+const ContactMovie = require('../models/db/contactmovie.schema')
 
 function removeUndefinedKeys(args) {
     debug('removeUndefinedKeys', args);
@@ -23,6 +26,10 @@ async function getAll(where) {
     if (where.description)
         description = where.description
     const movies = await moviesSchema.findAll({
+        include:
+        {
+            model: Contact
+        },
         where: removeUndefinedKeys({
             _id,
             title,
@@ -36,7 +43,6 @@ async function getAll(where) {
         (el => el.get({
             plain: true
         }));
-    // debug('movies.model', movies);
     return movies;
 }
 

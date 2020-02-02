@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const sequelize = require('./connection');
-const debug = require('debug')('sd:models:db:contact.schema')
+const debug = require('debug')('sd:models:db:contact.schema');
+// const Movie = require('./movies.schema');
+// const ContactMovie = require('./contactmovie.schema')
 
 const Contact = sequelize.define(
     "contact", {
@@ -49,6 +51,8 @@ const Contact = sequelize.define(
         version: true
     }
 );
+
+// Contact.belongsToMany(Movie, { through: ContactMovie });
 
 sequelize.sync({ force: false })
     .then(() => {
