@@ -35,11 +35,12 @@ async function getAll(where) {
 }
 
 async function create(args) {
-    const { name, dob, description } = args;
+    const { name, dob, description, image } = args;
     const contact = await contactSchema.create({
         name,
         dob,
-        description
+        description,
+        image
     });
     return contact.get({
         plain: true

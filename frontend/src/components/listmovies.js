@@ -44,7 +44,7 @@ class ListMovies extends React.Component {
         this.props.delMovie(id);
     }
     render() {
-        console.log(this.props.movies);
+        // console.log(this.props.movies);
         return (
             <div>
                 <SideNav />

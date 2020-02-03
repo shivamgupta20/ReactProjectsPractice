@@ -10,6 +10,7 @@ class SideNav extends React.Component {
                 <Link to='/admin/movies'>List Movies </Link>
                 <Link to='/admin/cImages'>Carousel Images </Link>
                 <Link to='/admin/contact'>Contacts </Link>
+                <Link to='/admin/cast'>Add Cast to Movies </Link>
             </div>)
     }
 }

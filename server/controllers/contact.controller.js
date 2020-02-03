@@ -3,10 +3,6 @@ const contactModel = require('../models/contact.model')
 const debug = require('debug')('sd:controllers:contacts.controller');
 
 async function getAll(req, res, next) {
-    // debug('getAll, req.query', req.query);
-    // debug('getAll, req.body', req.user);
-    // debug('contact.controller', req);
-
     const _id = req.params.id;
     const {
         name,
@@ -22,24 +18,27 @@ async function getAll(req, res, next) {
     debug('getAll contact _id', _id);
     return res.json({
         ok: true,
-        conatactsList: contacts,
-        message: 'conatacts List successfully retrieved.'
+        contactsList: contacts,
+        message: 'contacts List successfully retrieved.'
     });
 }
 
 
 async function create(req, res, next) {
     const args = req.body;
+    debug("args=", args)
     // debug('sd:controllers:contact.controller create', req);
     const {
         name,
         dob,
-        description
+        description,
+        image
     } = args;
     const contact = await contactModel.create({
         name,
         dob,
-        description
+        description,
+        image
     })
     res.json({
         ok: true,
