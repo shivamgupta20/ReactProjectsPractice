@@ -1,45 +1,47 @@
-import React from 'react';
-import SideNav from './sideNav';
-import './Layouts/contacts.css';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { postContact } from './store/actions/contactAction';
+import React from 'react'
+import SideNav from './sideNav'
+import './Layouts/contacts.css'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { postContact } from './store/actions/contactAction'
+import { withFormik } from 'formik'
+import Yup from 'yup'
 
 class CreateContact extends React.Component {
     constructor(props) {
-        super(props);
-        this.fieldUpdate = this.fieldUpdate.bind(this);
-        this.fileUpload = this.fileUpload.bind(this);
-        this.saveContact = this.saveContact.bind(this);
-        this.state = ({ name: "", dob: "", description: "", image: "" });
+        super(props)
+        this.fieldUpdate = this.fieldUpdate.bind(this)
+        this.fileUpload = this.fileUpload.bind(this)
+        this.saveContact = this.saveContact.bind(this)
+        this.state = ({ name: "", dob: "", description: "", image: "" })
     }
 
     fieldUpdate(e) {
         this.setState({
             ...this.state,
             [e.target.name]: e.target.value
-        });
+        })
     }
 
     saveContact() {
-        // console.log(this.state);
-        this.props.postContact(this.state);
+        // console.log(this.state)
+        this.props.postContact(this.state)
     }
 
     fileUpload(e) {
-        const self = this;
-        const file = e.target.files[0];
-        var reader = new FileReader();
-        var img = "";
+        const self = this
+        const file = e.target.files[0]
+        var reader = new FileReader()
+        var img = ""
         reader.onloadend = function () {
-            // img = reader.result;
+            // img = reader.result
             self.setState({
                 ...this.state,
                 image: reader.result
             })
         }
-        reader.readAsDataURL(file);
-        // console.log(img)
+        reader.readAsDataURL(file)
+        console.log(img)
     }
 
     render() {
@@ -70,14 +72,20 @@ class CreateContact extends React.Component {
     }
 
 }
+
+// const CreateContactFormik = ({
+
+// })(CreateContact)
+
 const MapStateToProps = (state) => {
     return ({
         contacts: state.contact
-    });
+    })
 }
 
 const DispatchStateToProps = dispatch => {
     postContact = () => dispatch(postContact())
 }
 
-export default connect("", { postContact })(CreateContact);
+// export default connect("", { postContact })(CreateContactFormik)
+export default connect(MapStateToProps, { postContact })(CreateContact)

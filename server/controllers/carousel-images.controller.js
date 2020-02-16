@@ -7,12 +7,12 @@ async function getAll(req, res, next) {
         _id,
         category
     } = req.query;
-    debug('getAll1');
+    // debug('getAll1');
     const images = await carouselImagesModel.getAll({
         _id,
         category
     })
-    debug('getAll1', images);
+    // debug('getAll1', images);
 
     return res.json({
         ok: true,
@@ -23,7 +23,7 @@ async function getAll(req, res, next) {
 
 async function create(req, res, next) {
     const args = req.body;
-    debug('sd:controller:carousel-images.controller create', req)
+    // debug('sd:controller:carousel-images.controller create', req)
     const {
         image,
         category,

@@ -21,13 +21,13 @@ const Contact = sequelize.define(
             }
         },
         dob: {
-            type: Sequelize.DATEONLY,
+            type: Sequelize.STRING,
             validate: {
                 isDate: true
             }
         },
         description: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING(6000),
             validate: {}
         },
         image: {
@@ -35,7 +35,8 @@ const Contact = sequelize.define(
             defaultValue: 'data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
             validate: {},
             get() {
-                return this.getDataValue('image').toString('utf8');
+                if (this.getDataValue('image'))
+                    return this.getDataValue('image').toString('utf8');
             }
         },
         // category: {

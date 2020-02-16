@@ -13,7 +13,7 @@ function removeUndefinedKeys(args) {
 }
 
 async function getAll(where) {
-    debug('movies.model.where', where)
+    // debug('movies.model.where', where)
     const { _id, title, releaseDate, duration, genre, description, language } = where;
     if (where.title)
         title = where.title;
@@ -75,7 +75,7 @@ async function remove(args) {
         })
 
     });
-    debug('remove', affectedCount);
+    // debug('remove', affectedCount);
     return affectedCount;
 }
 
@@ -103,7 +103,7 @@ async function update(_id, args) {
             })
         });
     const affectedCount = response[0];
-    debug('update', affectedCount);
+    // debug('update', affectedCount);
     return affectedCount;
 }
 

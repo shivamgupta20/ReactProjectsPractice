@@ -21,7 +21,7 @@ import MovieDetailSummary from './moviedetailsummary';
 import UReview from './ureview';
 import CReview from './creview';
 import Contact from './contact';
-import CreateContact from './createcontact';
+import CreateContactFormik from './createcontact';
 import AddCast from './addcast';
 
 class Routes extends React.Component {
@@ -78,7 +78,7 @@ class Routes extends React.Component {
                             <Route path="/admin/editmovies/:movieid" component={EditMovie}></Route>
                             <Route path="/admin/cImages" component={AddCImages}></Route>
                             <Route path="/admin/contact" component={Contact}></Route>
-                            <Route path="/admin/createcontact" component={CreateContact}></Route>
+                            <Route path="/admin/createcontact" component={CreateContactFormik}></Route>
                             <Route path="/admin/cast" component={AddCast}></Route>
 
                         </div>

@@ -27,7 +27,7 @@ async function getAll(req, res, next) {
         image,
         language
     })
-    debug('getAll movs _id', _id);
+    // debug('getAll movs _id', _id);
     return res.json({
         ok: true,
         moviesList: movs,
@@ -66,7 +66,7 @@ async function remove(req, res, next) {
     const affectedCount = await moviesModel.remove({
         _id
     });
-    debug('remove', affectedCount);
+    // debug('remove', affectedCount);
     if (affectedCount) {
         return ({
             ok: true,

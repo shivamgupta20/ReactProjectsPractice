@@ -3,6 +3,7 @@ import SideNav from './sideNav';
 import { connect } from 'react-redux';
 import { getMovies } from './store/actions/movieAction';
 import { getContact } from './store/actions/contactAction';
+import { postCast } from './store/actions/castActions';
 
 class AddCast extends React.Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class AddCast extends React.Component {
 
     saveCast(e) {
         e.preventDefault();
-
+        this.props.postCast(this.state)
     }
 
     componentDidMount() {
@@ -44,6 +45,7 @@ class AddCast extends React.Component {
         this.props.getContact();
     }
     render() {
+        // console.log(this.state)
         return (<div>
             <SideNav />
             <div style={{ marginLeft: '160px' }}>
@@ -81,7 +83,8 @@ const MapStateToProps = state => ({
 
 const MapDispatchToProps = dispatch => ({
     getMovies: () => dispatch(getMovies()),
-    getContact: () => dispatch(getContact())
+    getContact: () => dispatch(getContact()),
+    postCast: (data) => dispatch(postCast(data))
 })
 
 export default connect(MapStateToProps, MapDispatchToProps)(AddCast);
