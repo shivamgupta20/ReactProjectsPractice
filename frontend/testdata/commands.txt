@@ -2,7 +2,7 @@ MOVIES
 ------
 select title,releaseDate,duration,genre,description,language,image,createdAt,updatedAt,version,fullimage from movies into outfile 'd:/movies.txt' fields enclosed by '"' terminated by '|' escaped by '"' lines terminated by '\r';
 
-load data infile 'd:/movies.csv' into table movies1 fields terminated by '|' optionally enclosed by '"' lines terminated by '\r'
+load data infile 'd:/movies.csv' into table movies1 fields terminated by '|' optionally enclosed by '"' lines terminated by '\r' (title,releaseDate,duration,genre,description,language,image,createdAt,updatedAt,version,fullimage)
 
 ================
 CONTACTS
