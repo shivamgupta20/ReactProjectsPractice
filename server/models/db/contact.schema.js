@@ -22,9 +22,7 @@ const Contact = sequelize.define(
         },
         dob: {
             type: Sequelize.STRING,
-            validate: {
-                isDate: true
-            }
+            validate: {}
         },
         description: {
             type: Sequelize.STRING(6000),

@@ -30,9 +30,9 @@ class Contact extends React.Component {
                         <tbody>
                             {
                                 this.props.contacts.ContactsData.contactsList &&
-                                this.props.contacts.ContactsData.contactsList.map(con =>
+                                this.props.contacts.ContactsData.contactsList.map((con, i) =>
                                     <tr key={con._id}>
-                                        <td> {con._id} </td>
+                                        <td> {i} </td>
                                         <td> <img src={con.image} />  </td>
                                         <td> {con.name} </td>
                                         <td> {con.dob} </td>

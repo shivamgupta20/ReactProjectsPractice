@@ -25,7 +25,7 @@ const ContactReducer = (state = initialState, action) => {
             return ({
                 ...state,
                 LoadContact: false,
-                ContactsData: action.payload
+                ContactData: action.payload
             });
         case GET_CONTACTS_START:
             return ({

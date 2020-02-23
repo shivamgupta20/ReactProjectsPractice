@@ -32,20 +32,17 @@ class CreateContact extends React.Component {
         const self = this
         const file = e.target.files[0]
         var reader = new FileReader()
-        var img = ""
         reader.onloadend = function () {
-            // img = reader.result
             self.setState({
                 ...this.state,
                 image: reader.result
             })
         }
         reader.readAsDataURL(file)
-        console.log(img)
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
         return (
             <div>
                 <SideNav />
@@ -55,9 +52,9 @@ class CreateContact extends React.Component {
                         <label className="custom-label">Name</label>
                         <input type="text" name="name" onChange={this.fieldUpdate}></input><br />
                         <label className="custom-label">Date of Birth</label>
-                        <input type="date" name="dob" onChange={this.fieldUpdate}></input><br />
+                        <input type="text" name="dob" onChange={this.fieldUpdate}></input><br />
                         <label className="custom-label">Description</label>
-                        <input type="text" name="description" onChange={this.fieldUpdate}></input><br />
+                        <textarea name="description" onChange={this.fieldUpdate}></textarea><br />
                         <input type='file' onChange={this.fileUpload}></input><br /><br />
                         <button to="/admin/contact" onClick={this.saveContact}>
                             <Link to="/admin/contact"> Save </Link>

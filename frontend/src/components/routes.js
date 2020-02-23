@@ -1,41 +1,43 @@
-import React from 'react';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import Login from './login';
-import Home from './Home';
-import Logout from './logout';
-import Deposits from './deposits';
-import createDeposit from './createDeposit';
-import Users from './users';
-import Google from './google';
-import EditDeposit from './editDeposit';
+import React from 'react'
+import { BrowserRouter as Router, NavLink } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Login from './login'
+import Home from './Home'
+import Logout from './logout'
+import Deposits from './deposits'
+import createDeposit from './createDeposit'
+import Users from './users'
+import Google from './google'
+import EditDeposit from './editDeposit'
 import './Layouts/layouts.css'
-import { connect } from 'react-redux';
-import Movies from './movies';
-import createMovies from './createMovies';
-import ListMovies from './listmovies';
-import EditMovie from './editmovies';
-import AddCImages from './add-cimages';
-import { updStore } from './store/actions/authActions';
-import MovieDetailSummary from './moviedetailsummary';
-import UReview from './ureview';
-import CReview from './creview';
-import Contact from './contact';
-import CreateContactFormik from './createcontact';
-import AddCast from './addcast';
+import { connect } from 'react-redux'
+import Movies from './movies'
+import createMovies from './createMovies'
+import ListMovies from './listmovies'
+import EditMovie from './editmovies'
+import AddCImages from './add-cimages'
+import { updStore } from './store/actions/authActions'
+import MovieDetailSummary from './moviedetailsummary'
+import UReview from './ureview'
+import CReview from './creview'
+import Contact from './contact'
+import CreateContactFormik from './createcontact'
+import AddCast from './addcast'
+import MoviesDetailAdmin from './moviesdetailadmin'
+
 
 class Routes extends React.Component {
     render() {
-        let isAuthenticated = true;
+        let isAuthenticated = true
         // if (this.props.auth.authenticated === false)
-        //     this.props.updStore();
+        //     this.props.updStore()
         if (this.props.auth.authenticated === false)
-            isAuthenticated = false;
+            isAuthenticated = false
         else
-            isAuthenticated = true;
-        // debugger;
+            isAuthenticated = true
+        // debugger
         // if (this.props.auth.userData)
-        //     console.log(this.props.auth.userData.data.role);
+        //     console.log(this.props.auth.userData.data.role)
         return (
             <div>
                 <Router>
@@ -74,7 +76,8 @@ class Routes extends React.Component {
                             <Route path="/movie/:movid/ureview" component={UReview} />
 
                             <Route path="/admin/createmovies" component={createMovies} />
-                            <Route path="/admin/movies" component={ListMovies} />
+                            <Route exact path="/admin/movies" component={ListMovies} />
+                            <Route path="/admin/movies/:movId" component={MoviesDetailAdmin} />
                             <Route path="/admin/editmovies/:movieid" component={EditMovie}></Route>
                             <Route path="/admin/cImages" component={AddCImages}></Route>
                             <Route path="/admin/contact" component={Contact}></Route>
@@ -95,4 +98,4 @@ class Routes extends React.Component {
 const mapStateToProps = state => ({
     auth: state.auth
 })
-export default connect(mapStateToProps, { updStore })(Routes);
+export default connect(mapStateToProps, { updStore })(Routes)
