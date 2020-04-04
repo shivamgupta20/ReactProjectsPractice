@@ -9,6 +9,7 @@ const initialState = {
 }
 
 export const authReducer = (state = initialState, action) => {
+    console.log("in loginReducer", action)
     switch (action.type) {
         case AUTH_START:
             return {
