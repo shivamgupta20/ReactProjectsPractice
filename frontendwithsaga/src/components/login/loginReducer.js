@@ -1,4 +1,7 @@
-import { AUTH_START, AUTH_FAIL, AUTH_SUCCESS, AUTH_LOGOUT_START, AUTH_LOGOUT_SUCCESS, AUTH_LOGOUT_FAIL } from '../../store/actionTypes';
+import {
+    AUTH_START, AUTH_FAIL, AUTH_SUCCESS,
+    // AUTH_LOGOUT_START, AUTH_LOGOUT_SUCCESS, AUTH_LOGOUT_FAIL 
+} from '../../store/actionTypes';
 
 const initialState = {
     userData: "",
@@ -9,7 +12,6 @@ const initialState = {
 }
 
 export const authReducer = (state = initialState, action) => {
-    console.log("in loginReducer", action)
     switch (action.type) {
         case AUTH_START:
             return {
@@ -22,14 +24,14 @@ export const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authenticated: false,
-                error: action.payload.error,
+                error: action.userData,
                 loadAuth: false
             }
 
         case AUTH_SUCCESS:
             return {
                 ...state,
-                userData: action.payload.data,
+                userData: action.userData,
                 authenticated: true,
                 loadAuth: false
             }

@@ -26,13 +26,7 @@ export default function* watcherLoginSaga() {
     yield takeEvery(USER_REGISTER, workerUsrRegister)
 }
 
-const loginapi = data =>
-    axios.post('/api/login', data)
-        .then(res => res)
-        .catch(err => err)
+const loginapi = data => axios.post('/api/login', data)
 
-const usrRegisterApi = data =>
-    axios.post('/api/register', data)
-        .then(res => res)
-        .catch(err => err)
+const usrRegisterApi = data => axios.post('/api/register', data)
 
