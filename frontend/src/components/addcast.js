@@ -70,6 +70,8 @@ class AddCast extends React.Component {
                     }
 
                 </select><br /><br />
+                <label className="custom-label">Category</label>
+                <input type='text' name='category'></input><br /><br />
                 <button onClick={this.saveCast}>Save</button>
             </div>
         </div>)

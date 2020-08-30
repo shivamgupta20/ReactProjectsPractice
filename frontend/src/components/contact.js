@@ -32,7 +32,7 @@ class Contact extends React.Component {
                                 this.props.contacts.ContactsData.contactsList &&
                                 this.props.contacts.ContactsData.contactsList.map((con, i) =>
                                     <tr key={con._id}>
-                                        <td> {i} </td>
+                                        <td> {i + 1} </td>
                                         <td> <img src={con.image} />  </td>
                                         <td> {con.name} </td>
                                         <td> {con.dob} </td>

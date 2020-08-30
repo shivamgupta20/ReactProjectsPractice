@@ -1,0 +1,38 @@
+{
+    "ok": true,
+    "moviesList": [
+        {
+            "image": "data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7",
+            "_id": 16,
+            "title": "Mission Mangal11",
+            "releaseDate": "2019-08-15",
+            "duration": 140,
+            "genre": "Drama",
+            "description": "Inspired by true events that led up to ISRO`s Mars Orbiter Mission (Mangalyaan), the film tells the story of a group of scientists who overcame their professional and personal tribulations to mastermind the greatest accomplishment in Indian space history.",
+            "language": null,
+            "fullimage": null,
+            "createdAt": "2020-05-01T10:19:16.000Z",
+            "updatedAt": "2020-05-01T10:19:16.000Z",
+            "deletedAt": null,
+            "version": 0,
+            "contacts": []
+        },
+        {
+            "image": "data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7",
+            "_id": 16,
+            "title": "Mission Mangal11",
+            "releaseDate": "2019-08-15",
+            "duration": 140,
+            "genre": "Drama",
+            "description": "Inspired by true events that led up to ISRO`s Mars Orbiter Mission (Mangalyaan), the film tells the story of a group of scientists who overcame their professional and personal tribulations to mastermind the greatest accomplishment in Indian space history.",
+            "language": null,
+            "fullimage": null,
+            "createdAt": "2020-05-01T10:19:16.000Z",
+            "updatedAt": "2020-05-01T10:19:16.000Z",
+            "deletedAt": null,
+            "version": 0,
+            "contacts": []
+        }
+    ],
+    "message": "Movies List successfully retrieved."
+}
