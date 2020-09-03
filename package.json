@@ -50,6 +50,6 @@
     "cucumber": "^4.2.1",
     "http-shutdown": "^1.2.0",
     "mocha": "^5.2.0",
-    "puppeteer": "^1.5.0"
+    "puppeteer": "^1.13.0"
   }
 }
