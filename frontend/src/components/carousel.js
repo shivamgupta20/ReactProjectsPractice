@@ -14,6 +14,7 @@ class Carousel extends React.Component {
     }
 
     componentDidMount() {
+        if(this.props.data.carouselImages){
         this.setState({
             image1: this.props.data.carouselImages[0].image,
             image2: this.props.data.carouselImages[1].image,
@@ -21,6 +22,7 @@ class Carousel extends React.Component {
             index: 0
         }, this.slideImage.bind(this)
         );
+    }
     }
     componentWillUnmount() {
         clearInterval(this.intv);
